@@ -1,2 +1,2 @@
 #!/bin/bash
-chmod goa+x ./*
+chmod ugo+x ./*
