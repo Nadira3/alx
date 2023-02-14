@@ -1,2 +1,2 @@
 #!/bin/bash
-find -path '*/*' -type f -name '*.gif' | sort -n | rev | cut -d '/' -f 1 | cut -c 5- | rev
+find -path '*/*' -name '*.gif' -type f -printf '%p\n' | sort -n | rev | cut -d '/' -f 1 | cut -c 5- | rev
