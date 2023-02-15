@@ -1,2 +1,2 @@
 #!/bin/bash
-sort -c | tr -s 'c' --delete
+cat | tr -s c C | tr -d C
