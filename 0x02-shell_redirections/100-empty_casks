@@ -1,2 +1,2 @@
 #!/bin/bash
-find -empty | sort -n | rev | cut -d '/' -f 1 | rev
+find -path './*' -empty -ls | sort -r | rev | cut -d '/' -f 1 | rev
