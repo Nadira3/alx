@@ -1,1 +1,2 @@
-Everyone is a proponent of strong encryption.Everyone is a proponent of strong encryption.
+#!/bin/bash
+tr 'a-zA-Z' 'n-za-mN-ZA-m'
