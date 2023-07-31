@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Bash script that reads from a file
+
+FILE=/etc/passwd
+
+# open fd for passwd file
+exec 3<$FILE
+
+# change internal field separator to split read result into fields
+IFS=":"
+
+#loop through each line in the passwd file
+while read -u 3 -r user pw uid gid name home shell 
+do
+	echo "$user:$uid:$home"
+done
+
+#close fd #3
+exec 3<&-
