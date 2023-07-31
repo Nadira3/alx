@@ -13,6 +13,7 @@ IFS=":"
 while read -u 3 -r user pw uid gid name home shell 
 do
 	echo "$user:$uid:$home"
+	echo "$pw $gid $name $shell" > /dev/null
 done
 
 #close fd #3
