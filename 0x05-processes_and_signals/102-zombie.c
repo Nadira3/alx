@@ -4,6 +4,12 @@
 #include <sys/types.h>
 #include <unistd.h>
 
+/**
+ * infinite_while - A function that waits infinitely
+ * to allow monitoring of zombie process
+ *
+ * Return: 0
+ */
 int infinite_while(void)
 {
 	while (1)
@@ -14,7 +20,7 @@ int infinite_while(void)
 }
 
 /**
- * main - A C program to demonstrate Zombie Process.
+ * zombie - A C program to demonstrate Zombie Process.
  * Child becomes Zombie as parent is sleeping
  * when child process exits.
  *
@@ -22,7 +28,6 @@ int infinite_while(void)
  */
 int zombie(void)
 {
-	int status;
 	pid_t child_pid;
 
 	/* Fork returns process id in parent process */
@@ -37,10 +42,17 @@ int zombie(void)
 	/* Child process */
 	else
 		exit(0);
-	
+
 	return (0);
 }
 
+/**
+ * main - A C program to demonstrate Zombie Process.
+ * Child becomes Zombie as parent is sleeping
+ * when child process exits.
+ *
+ * Return: 0
+ */
 int main(void)
 {
 	int i;
