@@ -19,18 +19,18 @@ start()
 
 restart()
 {
-	kill -s 9 "$(pgrep -f manage_my_process)"
+	kill -s 9 "$(pgrep -f "./manage_my_process")"
 	if [ -f "$pid_file" ]; then
 		rm "$pid_file"
 	fi
-	source ./manage_my_process  &
+	eval '"./manage_my_process" &'
 	touch "$pid_file"
 	echo "manage_my_process restarted"
 }
 
 stop()
 {
-	kill -s 9 "$(pgrep -f manage_my_process)"
+	kill -s 9 "$(pgrep -f "./manage_my_process")"
 	if [ -f "$pid_file" ]; then
 		rm "$pid_file"
 	fi
@@ -44,7 +44,7 @@ for str in "${commands[@]}"; do
 	fi
 done
 
-if [ $i -eq 0 ]; then
+if [ "$i" -eq 0 ]; then
 	echo "Usage: manage_my_process {start|stop|restart}"
 	exit
 fi
