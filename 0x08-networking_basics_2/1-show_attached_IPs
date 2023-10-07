@@ -1,1 +1,3 @@
-# will do this later
+#!/usr/bin/env bash
+# Bash script that disolays all its ip addresses
+hostname -i | grep -v ':'
