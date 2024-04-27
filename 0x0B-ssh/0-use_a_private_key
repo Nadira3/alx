@@ -3,4 +3,4 @@
 
 user="ubuntu"
 server_ip="54.197.95.192"
-ssh -i "~/.ssh/school" "$user@$server_ip"
+ssh -i ~/.ssh/school "$user@$server_ip"
