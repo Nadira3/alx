@@ -1,0 +1,3 @@
+Host 54.197.95.192
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
