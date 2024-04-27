@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Connect to the server using ssh with the private key and specified user
 
-private_key="~/.ssh/school"
 user="ubuntu"
 server_ip="54.197.95.192"
-ssh -i "$private_key" "$user@$server_ip"
+ssh -i "~/.ssh/school" "$user@$server_ip"
