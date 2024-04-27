@@ -1,3 +1,4 @@
+# automating config edit
 $user_home = $facts['homedir']
 $user_name = $facts['id']
 $user_group = $facts['group']
