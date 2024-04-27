@@ -1,17 +1,22 @@
 # automating config edit
-$user_home = $facts['homedir']
-$user_name = $facts['id']
-$user_group = $facts['group']
+# puppet_ssh_config.pp
 
-file { "${user_home}/.ssh/config":
-  ensure  => present,
-  content => "\
-Host 54.197.95.192
-    IdentityFile ~/.ssh/school
-    PasswordAuthentication no
-",
-  owner   => $user_name,
-  group   => $user_group,
-  mode    => '0600',
+# Define the SSH client configuration file path
+$ssh_config_file = '/etc/ssh/ssh_config'
+
+# Ensure SSH client configuration is set to use the private key ~/.ssh/school
+file_line { 'Declare identity file':
+  path   => $ssh_config_file,
+  line   => '    IdentityFile ~/.ssh/school',
+  match  => '^#?\s*IdentityFile',
+  ensure => present,
+}
+
+# Ensure SSH client configuration is set to refuse authentication using a password
+file_line { 'Turn off passwd auth':
+  path   => $ssh_config_file,
+  line   => '    PasswordAuthentication no',
+  match  => '^#?\s*PasswordAuthentication',
+  ensure => present,
 }
 
