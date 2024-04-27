@@ -1,10 +1,16 @@
-# Define SSH client configuration file content
-file { '/home/u0_a171/.ssh/config':
+$user_home = $facts['homedir']
+$user_name = $facts['id']
+$user_group = $facts['group']
+
+file { "${user_home}/.ssh/config":
   ensure  => present,
   content => "\
-Host <server_hostname_or_IP>
+Host 54.197.95.192
     IdentityFile ~/.ssh/school
     PasswordAuthentication no
 ",
-  owner   => 'u0_a171',
+  owner   => $user_name,
+  group   => $user_group,
+  mode    => '0600',
 }
+
