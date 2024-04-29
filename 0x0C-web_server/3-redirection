@@ -1,0 +1,20 @@
+#!/bin/env bash
+# Define the path to the Nginx configuration file
+nginx_config="/etc/nginx/sites-available/default"
+
+# Define the new configuration block for the redirection
+new_config="
+server {
+    listen 80;
+    server_name _;
+    location /redirect_me {
+        return 301 https://www.example.com/new_page;
+    }
+}
+"
+
+# Use sed to replace the default server block with the new configuration block
+sed -i "/server {/a ${new_config}" $nginx_config
+
+# Restart Nginx to apply the changes
+service nginx restart
